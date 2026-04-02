@@ -1,0 +1,8 @@
+select e.name
+from employee e
+join
+(select managerid
+from employee
+group by managerid
+having count(*)>=5)d
+on e.id=d.managerid
